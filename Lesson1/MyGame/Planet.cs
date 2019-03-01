@@ -7,9 +7,25 @@ namespace MyGame
     class Planet : BaseObject
     {
         List<Bitmap> bitMapList = new List<Bitmap>() {
-            new Bitmap("..\\..\\img/giants/star_blue_giant01.png"),
-            new Bitmap("..\\..\\img/giants/star_red_giant01.png"), 
-            new Bitmap("..\\..\\img/giants/star_white_giant03.png") };
+            new Bitmap("..\\..\\img/planets/moon_03.png"),
+            new Bitmap("..\\..\\img/planets/moon_04.png"),
+            new Bitmap("..\\..\\img/planets/planet_01.png"),
+            new Bitmap("..\\..\\img/planets/planet_02.png"), 
+            new Bitmap("..\\..\\img/planets/planet_03.png"), 
+            new Bitmap("..\\..\\img/planets/planet_04.png"), 
+            new Bitmap("..\\..\\img/planets/planet_05.png"), 
+            new Bitmap("..\\..\\img/planets/planet_06.png"), 
+            new Bitmap("..\\..\\img/planets/planet_07.png"), 
+            new Bitmap("..\\..\\img/planets/planet_08.png"), 
+            new Bitmap("..\\..\\img/planets/planet_09.png"), 
+            new Bitmap("..\\..\\img/planets/planet_10.png"), 
+            new Bitmap("..\\..\\img/planets/planet_11.png"), 
+            new Bitmap("..\\..\\img/planets/planet_12.png"), 
+            new Bitmap("..\\..\\img/planets/planet_13.png"), 
+            new Bitmap("..\\..\\img/planets/planet_14.png"), 
+            new Bitmap("..\\..\\img/planets/planet_15.png"), 
+            new Bitmap("..\\..\\img/planets/planet_16.png"), 
+            new Bitmap("..\\..\\img/planets/planet_17.png") };
 
         Bitmap image;
         

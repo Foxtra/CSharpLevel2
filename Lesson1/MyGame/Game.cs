@@ -14,7 +14,7 @@ namespace MyGame
         const int planetSpeed = 3;
         const int numOfPlanets = 3;
         const int numOfStars = 30;
-        const int numOfAsteroids = 10;
+        const int numOfAsteroids = 15;
         const int numOfSmallStars = 50;
         const int maxSize = 30;
         const int minSize = 10;
@@ -42,7 +42,7 @@ namespace MyGame
 
             for (int i = _objs.Length - numOfStars - numOfPlanets - numOfAsteroids; i < _objs.Length - numOfPlanets - numOfAsteroids; i++)
             {
-                int size = rand.Next(minSize, maxSize);
+                int size = rand.Next(minSize/2, maxSize/2);
                 _objs[i] = new Star(new Point(Convert.ToInt32(rand.NextDouble() * (double)Game.Width),
                     Convert.ToInt32(rand.NextDouble() * (double)Game.Height)), new Point(rand.Next(-commonSpeed * 2, -1), 0), new Size(size, size));
             }
@@ -51,7 +51,7 @@ namespace MyGame
             {
                 int size = rand.Next(minSize * 3, maxSize * 3);
                 _objs[i] = new Planet(new Point(Convert.ToInt32(rand.NextDouble() * (double)Game.Width),
-                    Convert.ToInt32(rand.NextDouble() * (double)Game.Height)), new Point(rand.Next(-planetSpeed, -1), 0), new Size(size, size));
+                    Convert.ToInt32(rand.NextDouble() * (double)Game.Height)), new Point(rand.Next(-planetSpeed / 2, -1), 0), new Size(size, size));
             }
 
             for (int i = _objs.Length - numOfAsteroids; i < _objs.Length; i++)
@@ -78,7 +78,7 @@ namespace MyGame
             Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
             Load();
 
-            Timer timer = new Timer { Interval = 50 };
+            Timer timer = new Timer { Interval = 100 };
             timer.Start();
             timer.Tick += Timer_Tick;
 
