@@ -20,15 +20,17 @@ namespace MyGame
         const int minSize = 10;
 
 
-        // Свойства
-        // Ширина и высота игрового поля
+
+        /// <summary>Ширина окна</summary>
         public static int Width { get; set; }
+        /// <summary>Высота окна</summary>
         public static int Height { get; set; }
 
         static Game()
         {
         }
 
+        /// <summary>Метод создания объектов в окне</summary>
         public static void Load()
         {
             Random rand = new Random();
@@ -63,6 +65,11 @@ namespace MyGame
             }
         }
 
+        /// <summary>Таймер для отрисовки</summary>
+        static public Timer timer = new Timer { Interval = 100 };
+
+        /// <summary>Метод создания графики в форме </summary>
+        /// <param name="form">Форма</param>
         public static void Init(Form form)
         {
             // Графическое устройство для вывода графики            
@@ -78,18 +85,21 @@ namespace MyGame
             Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
             Load();
 
-            Timer timer = new Timer { Interval = 100 };
             timer.Start();
             timer.Tick += Timer_Tick;
 
         }
 
+        /// <summary>Метод обработки события счёта таймера</summary>
+        /// <param name="sender">Вызывающий объект</param>
+        /// <param name="e">Параметры события</param>
         private static void Timer_Tick(object sender, EventArgs e)
         {
             Draw();
             Update();
         }
 
+        /// <summary>Метод отрисовки объектов</summary>
         public static void Draw()
         {
             Buffer.Graphics.Clear(Color.Black);
@@ -98,6 +108,7 @@ namespace MyGame
             Buffer.Render();
         }
 
+        /// <summary>Метод обновления объектов на форме</summary>
         public static void Update()
         {
             foreach (BaseObject obj in _objs)

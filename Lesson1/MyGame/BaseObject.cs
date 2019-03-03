@@ -11,6 +11,10 @@ namespace MyGame
         Bitmap image = new Bitmap("..\\..\\img/asteroid.png");
         protected Random random = new Random();
 
+        /// <summary>Инициализирует объект BaseObject</summary>
+        /// <param name="pos">Позиция</param>
+        /// <param name="dir">Направление</param>
+        /// <param name="size">Размер</param>
         public BaseObject(Point pos, Point dir, Size size)
         {
             Pos = pos;
@@ -18,11 +22,13 @@ namespace MyGame
             Size = size;
         }
 
+        /// <summary>Метод отрисовки объекта</summary>
         public virtual void Draw()
         {
             Game.Buffer.Graphics.DrawImage(image, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
 
+        /// <summary>Метод обновления местоположения объекта</summary>
         public virtual void Update()
         {
             Pos.X = Pos.X + Dir.X;

@@ -6,6 +6,7 @@ namespace MyGame
 {
     class Planet : BaseObject
     {
+        /// <summary>Список картинок для планет</summary>
         List<Bitmap> bitMapList = new List<Bitmap>() {
             new Bitmap("..\\..\\img/planets/moon_03.png"),
             new Bitmap("..\\..\\img/planets/moon_04.png"),
@@ -28,18 +29,23 @@ namespace MyGame
             new Bitmap("..\\..\\img/planets/planet_17.png") };
 
         Bitmap image;
-        
 
+        /// <summary>Инициализирует объект Planet при помощи базового конструктора BaseObject</summary>
+        /// <param name="pos">Местонахождение</param>
+        /// <param name="dir">Направление</param>
+        /// <param name="size">Размер</param>
         public Planet(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
             image = bitMapList[random.Next(0,bitMapList.Count)];
         }
 
+        /// <summary>Метод отрисовки объекта</summary>
         public override void Draw()
         {
             Game.Buffer.Graphics.DrawImage(image, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
 
+        /// <summary>Метод обновления местоположения и изображения объекта</summary>
         public override void Update()
         {
             Pos.X = Pos.X + Dir.X;
