@@ -12,6 +12,9 @@ namespace MyGame
         Bitmap image = new Bitmap("..\\..\\img/asteroid.png");
         public int Power { get; set; } = 3;
 
+        public static event Action<string> asteroidCreation;
+        public static event Action<string> asteroidRecreation;
+
         /// <summary>Инициализирует объект Asteroid при помощи базового конструктора BaseObject</summary>
         /// <param name="pos">Местонахождение</param>
         /// <param name="dir">Направление</param>
@@ -31,6 +34,7 @@ namespace MyGame
                     image.RotateFlip(RotateFlipType.Rotate90FlipNone);
                     break;
             }
+            asteroidCreation?.Invoke($"{DateTime.Now}: Cоздан астероид в позиции ({Pos.X}, {Pos.Y}), размера {Size.Width}");
         } 
 
         /// <summary>Метод отрисовки объекта</summary>
@@ -55,6 +59,7 @@ namespace MyGame
         {
             Pos.X = myRandom.RandomIntNumber(Game.Width / 2, Game.Width - Size.Width);
             Pos.Y = Convert.ToInt32(myRandom.RandomDoubleNumber() * (double)(Game.Height - Size.Height));
+            asteroidRecreation?.Invoke($"{DateTime.Now}: Астероид был уничтожен и создан в коорданитах ({Pos.X}, {Pos.Y})");
         }
 
         public object Clone()

@@ -1,4 +1,6 @@
-﻿namespace MyGame
+﻿using System.Diagnostics;
+
+namespace MyGame
 {
     /// <summary>Класс логирования действий программы</summary>
     class Logging
@@ -9,6 +11,7 @@
         {
             using (var sw = new System.IO.StreamWriter("data.log", true))
             {
+                Debug.WriteLine(Msg);
                 sw.WriteLine(Msg);
             }
         }

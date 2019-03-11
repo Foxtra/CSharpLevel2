@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 namespace MyGame
 {
-    //delegate void GetData(string Msg);
-
     static class Game
     {
         private static BufferedGraphicsContext _context;
@@ -19,8 +17,14 @@ namespace MyGame
         private static Medkit[] _medkit;
         private static int score = 0;
 
-        //private static GetData getDataEvent = Logging.Log;
-        private static Action<string> GetData = Logging.Log;
+        Asteroid.asteroidCreation += Logging.Log;
+        Asteroid.asteroidRecreation += Logging.Log;
+        Ship.shipDie += Logging.Log;
+        Ship.shipEnergyLow += Logging.Log;
+        Ship.shipEnergyHigh += Logging.Log;
+        Bullet.bulletOutOfScreen += Logging.Log;
+        Bullet.bulletDestroed += Logging.Log;
+
 
         //Число объектов
         const int numOfPlanets = 5;
@@ -285,10 +289,14 @@ namespace MyGame
                     {
                         System.Media.SystemSounds.Hand.Play();
                         _asteroids[i].Recreate();
+                        _bullet[j].Destroed();
                         _bullet.RemoveAt(j);
                         score += _asteroids[i].Power;
                         continue;
                     }
+
+                    if (_bullet[j].OutOfScreen())
+                        _bullet.RemoveAt(j);
                 }
 
                 if (_ship.Collision(_asteroids[i])) {

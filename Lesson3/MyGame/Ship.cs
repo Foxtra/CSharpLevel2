@@ -19,7 +19,12 @@ namespace MyGame
 
         Bitmap image = new Bitmap("..\\..\\img/ship.png");
 
+        public static event Action<string> shipDie;
+        public static event Action<string> shipEnergyLow;
+        public static event Action<string> shipEnergyHigh;
+
         public static event Message MessageDie;
+
 
         /// <summary>Инициализирует объект Ship при помощи базового конструктора BaseObject</summary>
         /// <param name="pos">Местонахождение</param>
@@ -29,51 +34,58 @@ namespace MyGame
         {
         }
 
-
+        /// <summary>Метод получения урона кораблём</summary>
+        /// <param name="n">Величина урона</param>
         public void EnergyLow(int n)
         {
             _energy -= n;
+            shipEnergyLow?.Invoke($"{DateTime.Now}: Корабль получил повреждения");
         }
 
-
+        /// <summary>Метод отрисовки объекта</summary>
         public override void Draw()
         {
             Game.Buffer.Graphics.DrawImage(image, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
 
-
+        /// <summary>Метод обновления местоположения объекта</summary>
         public override void Update()
         {
         }
 
-
+        /// <summary>Метод перемещения корабля вверх</summary>
         public void Up()
         {
             if (Pos.Y > 0) Pos.Y = Pos.Y - Dir.Y;
         }
 
-
+        /// <summary>Метод перемещения корабля вниз</summary>
         public void Down()
         {
             if (Pos.Y < Game.Height) Pos.Y = Pos.Y + Dir.Y;
         }
 
-
+        /// <summary>Метод уничтожения корабля</summary>
         public void Die()
         {
-            MessageDie?.Invoke();
+            shipDie?.Invoke($"{DateTime.Now}: Корабль был уничтожен");
         }
 
+        /// <summary>Метод восстановления уровня здоровья корабля</summary>
         internal void EnergyHigh(int power)
         {
             if (_energy < maxEnergy)
-                if (_energy + power > maxEnergy) {
+            {
+                if (_energy + power > maxEnergy)
+                {
                     _energy = maxEnergy;
                 }
                 else
                 {
                     _energy += power;
                 }
+                shipEnergyHigh?.Invoke($"{DateTime.Now}: Корабль восстановил энергию");
+            }
         }
     }
 
