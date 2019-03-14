@@ -1,0 +1,7 @@
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\bin\Debug\GenericList.exe.config
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\bin\Debug\GenericList.exe
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\bin\Debug\GenericList.pdb
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\obj\Debug\GenericList.csprojAssemblyReference.cache
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\obj\Debug\GenericList.csproj.CoreCompileInputs.cache
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\obj\Debug\GenericList.exe
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\GenericList\obj\Debug\GenericList.pdb

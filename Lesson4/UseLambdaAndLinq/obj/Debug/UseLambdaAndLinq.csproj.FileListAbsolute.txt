@@ -1,0 +1,6 @@
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\bin\Debug\UseLambdaAndLinq.exe.config
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\bin\Debug\UseLambdaAndLinq.exe
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\bin\Debug\UseLambdaAndLinq.pdb
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\obj\Debug\UseLambdaAndLinq.csproj.CoreCompileInputs.cache
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\obj\Debug\UseLambdaAndLinq.exe
+C:\Users\trane\source\repos\CSharpLevel2\Lesson4\UseLambdaAndLinq\obj\Debug\UseLambdaAndLinq.pdb
