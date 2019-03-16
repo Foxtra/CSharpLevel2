@@ -18,15 +18,6 @@ namespace MyGame
         private static Medkit[] _medkit;
         private static int score = 0;
 
-        //Asteroid.asteroidCreation += Logging.Log;
-        //Asteroid.asteroidRecreation += Logging.Log;
-        //Ship.shipDie += Logging.Log;
-        //Ship.shipEnergyLow += Logging.Log;
-        //Ship.shipEnergyHigh += Logging.Log;
-        //Bullet.bulletOutOfScreen += Logging.Log;
-        //Bullet.bulletDestroed += Logging.Log;
-
-
         //Число объектов
         const int numOfPlanets = 5;
         const int numOfStars = 30;
@@ -54,8 +45,7 @@ namespace MyGame
         //Ограничения объектов
         const int formSizeLimit = 1000;
         const int speedLimit = 30;
-
-
+        
 
         /// <summary>Ширина окна</summary>
         public static int Width { get; set; }
@@ -64,6 +54,28 @@ namespace MyGame
 
         static Game()
         {
+        }
+
+        public static void LogsOn()
+        {
+            Asteroid.asteroidCreation += Logging.Log;
+            Asteroid.asteroidRecreation += Logging.Log;
+            Ship.shipDie += Logging.Log;
+            Ship.shipEnergyLow += Logging.Log;
+            Ship.shipEnergyHigh += Logging.Log;
+            Bullet.bulletOutOfScreen += Logging.Log;
+            Bullet.bulletDestroed += Logging.Log;
+        }
+
+        public static void LogsOff()
+        {
+            Asteroid.asteroidCreation -= Logging.Log;
+            Asteroid.asteroidRecreation -= Logging.Log;
+            Ship.shipDie -= Logging.Log;
+            Ship.shipEnergyLow -= Logging.Log;
+            Ship.shipEnergyHigh -= Logging.Log;
+            Bullet.bulletOutOfScreen -= Logging.Log;
+            Bullet.bulletDestroed -= Logging.Log;
         }
 
         /// <summary>Метод создания объектов в окне</summary>
@@ -158,6 +170,7 @@ namespace MyGame
         /// <param name="form">Форма</param>
         public static void Init(Form form)
         {
+            LogsOn();
             // Графическое устройство для вывода графики            
             Graphics g;
             // Предоставляет доступ к главному буферу графического контекста для текущего приложения
@@ -342,6 +355,7 @@ namespace MyGame
         public static void Finish()
         {
             Closed();
+            LogsOff();
             Buffer.Graphics.DrawString("The End", new Font(FontFamily.GenericSansSerif, 60, FontStyle.Underline), Brushes.White, Width/3, Height/2);
             Buffer.Render();
         }
