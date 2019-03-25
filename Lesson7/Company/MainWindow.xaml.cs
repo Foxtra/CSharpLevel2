@@ -63,10 +63,10 @@ namespace Company
             adapter = new SqlDataAdapter();
 
             SqlCommand command =
-                new SqlCommand(@"SELECT e.ID, e.Name, e.Surname," +
-                             " e.Age, e.Salary, d.Name Department" +
-                             "FROM Employees e" +
-                             "JOIN Departments d on e.DepartmentID = d.ID",
+                new SqlCommand(@"SELECT e.ID, eName as Name, Surname," +
+                             " Age, Salary, dName as Department" +
+                             " FROM Employees e" +
+                             " JOIN Departments d on e.DepartmentID = d.ID",
                 connection);
             adapter.SelectCommand = command;
 
