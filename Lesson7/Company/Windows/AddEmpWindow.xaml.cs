@@ -1,5 +1,4 @@
-﻿using Company.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,14 +29,14 @@ namespace Company.Windows
         /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.dbd.addEmp(tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, 
-                (cboxDepartment.SelectedItem as Department).DepartmentID))
-            {
-                MessageBox.Show("Сотрудник добавлен!");
-                this.Close();
-            }
-            else
-                MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
+            //if (MainWindow.dbd.addEmp(tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, 
+            //    (cboxDepartment.SelectedItem as Department).DepartmentID))
+            //{
+            //    MessageBox.Show("Сотрудник добавлен!");
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
         }
     }
 }

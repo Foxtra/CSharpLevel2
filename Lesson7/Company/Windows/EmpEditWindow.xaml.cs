@@ -1,5 +1,4 @@
-﻿using Company.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,29 +20,29 @@ namespace Company
     /// </summary>
     public partial class EmpEditWindow : Window
     {
-        Employee oldemp;
-        internal EmpEditWindow(Employee employee)
+        
+        internal EmpEditWindow()
         {
             InitializeComponent();
-            oldemp = employee;
-            tboxName.Text = employee.Name;
-            tboxSurname.Text = employee.Surname;
-            tboxAge.Text = employee.Age.ToString();
-            tboxSalary.Text = employee.Salary.ToString();
-            cboxDepartment.SelectedIndex = (int)employee.DepartmentID;
+            //oldemp = employee;
+            //tboxName.Text = employee.Name;
+            //tboxSurname.Text = employee.Surname;
+            //tboxAge.Text = employee.Age.ToString();
+            //tboxSalary.Text = employee.Salary.ToString();
+            //cboxDepartment.SelectedIndex = (int)employee.DepartmentID;
 
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.dbd.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, 
-                (cboxDepartment.SelectedItem as Department).DepartmentID))
-            {
-                MessageBox.Show("Данные о сотруднике изменены!");
-                this.Close();
-            }
-            else
-                MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
+            //if (MainWindow.dbd.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, 
+            //    (cboxDepartment.SelectedItem as Department).DepartmentID))
+            //{
+            //    MessageBox.Show("Данные о сотруднике изменены!");
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Company"
         mc:Ignorable="d"
-        Title="DepEditWindow" Height="188.221" Width="414.904">
+        Title="DepEditWindow" Height="188.221" Width="414.904" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Старое название" 
                HorizontalAlignment="Left" 
@@ -36,11 +36,19 @@
         
         <Button x:Name="btnSave" 
             Content="Сохранить" 
-            HorizontalAlignment="Center" 
-            Margin="0,110,0,0" 
+            HorizontalAlignment="Left" 
+            Margin="60,110,0,0" 
             VerticalAlignment="Top" 
             Width="auto"
             Padding="3" Click="BtnSave_Click"/>
+
+        <Button x:Name="cancelButton" 
+            Content="Отменить" 
+            HorizontalAlignment="Right" 
+            Margin="0,110,60,0" 
+            VerticalAlignment="Top" 
+            Width="auto"
+            Padding="3" Click="cancelButton_Click"/>
 
     </Grid>
 </Window>
